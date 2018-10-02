@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.MainController">
+   <left>
+      <ListView fx:id="songList" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="299.0" BorderPane.alignment="CENTER">
+         <top>
+            <AnchorPane prefHeight="248.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Text layoutX="69.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="41.5595703125" />
+                  <Text layoutX="71.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year:" wrappingWidth="36.08203125" />
+                  <Text layoutX="71.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artist:" wrappingWidth="40.16015625" />
+                  <Text layoutX="70.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Album:" wrappingWidth="42.923828125" />
+                  <TextField fx:id="nameField" layoutX="115.0" layoutY="65.0" opacity="0.0" />
+                  <TextField fx:id="artistField" layoutX="115.0" layoutY="103.0" opacity="0.0" />
+                  <TextField fx:id="albumField" layoutX="115.0" layoutY="143.0" opacity="0.0" />
+                  <TextField fx:id="yearField" layoutX="115.0" layoutY="182.0" opacity="0.0" />
+                  <Label fx:id="detailTitle" alignment="CENTER" layoutX="82.0" layoutY="42.0" prefHeight="23.0" prefWidth="233.0" text="Song Info" textAlignment="CENTER">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label fx:id="nameLabel" alignment="CENTER" layoutX="117.0" layoutY="70.0" />
+                  <Label fx:id="artistLabel" alignment="CENTER" layoutX="117.0" layoutY="108.0" />
+                  <Label fx:id="albumLabel" alignment="CENTER" layoutX="117.0" layoutY="148.0" />
+                  <Label fx:id="yearLabel" alignment="CENTER" layoutX="117.0" layoutY="187.0" />
+                  <Label fx:id="tips" alignment="CENTER" layoutX="23.0" layoutY="217.0" prefHeight="17.0" prefWidth="379.0" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+         </top>
+         <bottom>
+            <ButtonBar prefHeight="45.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+              <buttons>
+                <Button fx:id="addBtn" mnemonicParsing="false" onAction="#add" text="ADD" />
+                  <Button fx:id="editBtn" mnemonicParsing="false" onAction="#edit" text="EDIT" />
+                  <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#delete" text="DELETE" />
+                  <Button fx:id="cancelBtn" disable="true" mnemonicParsing="false" onAction="#cancel" prefHeight="27.0" prefWidth="77.0" text="CANCEL">
+                     <font>
+                        <Font size="12.0" />
+                     </font></Button>
+                  <Button fx:id="doneBtn" disable="true" mnemonicParsing="false" onAction="#done" text="DONE" />
+              </buttons>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </ButtonBar>
+         </bottom>
+      </BorderPane>
+   </center>
+</BorderPane>
