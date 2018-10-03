@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Optional;
 
 import com.google.gson.*;
@@ -69,7 +68,7 @@ public class MainController {
 	JsonElement root;
 	JsonObject obj;
 	JsonArray list;
-	
+
 	public void start(Stage mainStage) throws JsonIOException, JsonSyntaxException, FileNotFoundException {          
 		
 		
@@ -140,9 +139,7 @@ public class MainController {
 			onlyCancelAndDoneAllowed();
 			setDetailToEmpty();
 			detailTitle.setText("Add information to the fields");
-			tips.setText("");
-		} else {
-			System.out.println("Wrong");
+			tips.setText("Tip: The album and year are optional.");
 		}
 	}
 	
@@ -182,8 +179,6 @@ public class MainController {
 					tips.setText("Tip: Press the add button to add a new song.");
 				}
 			}
-		} else {
-			System.out.println("wrong");
 		}
 	}
 	
@@ -201,8 +196,6 @@ public class MainController {
 				tempYear = yearField.getText();
 				detailTitle.setText("Edit the fields");
 			}
-		} else {
-			System.out.println("wrong");
 		}
 	}
 	
@@ -229,14 +222,14 @@ public class MainController {
 					editBtn.setDisable(true);
 					deleteBtn.setDisable(true);
 					tips.setText("Tip: Press the add button to add a new song.");
+				} else {
+					tips.setText("");
 				}
 				
 				isAdding = false;
 			}
 			detailTitle.setText("Song Info");
 			onlyCancelAndDoneUnallowed();
-		} else {
-			System.out.println("wrong");
 		}
 	}
 	
@@ -294,7 +287,6 @@ public class MainController {
 				} else if(!isInteger(currentYear) && !currentYear.equals("")) {
 					showAlert("Incorrect year","Year field must be a number");
 				} else if (!noDuplicates(currentName,currentArtist,null,false)) {
-					System.out.println("here boy");
 					showAlert("Duplicate","There already exists a song with this name and artist!");
 				}else {
 					Song newSong = new Song(currentName,currentArtist,currentAlbum);
@@ -334,8 +326,6 @@ public class MainController {
 				}
 				
 			}
-		} else {
-			System.out.println("wrong");
 		}
 	}
 	
@@ -370,18 +360,21 @@ public class MainController {
 		//true for no duplicate song name and artist
 		//false for found duplicate song name and artist
 		
+		name = name.toLowerCase();
+		artist = artist.toLowerCase();
+		
 		Song tempSong = null;
 		if(editing) {
 			for(int i = 0;i<songs.size();i++) {
 				tempSong = songs.get(i);
-				if(tempSong.name.equals(name) && tempSong.artist.equals(artist) && tempSong != currentSong) {
+				if(tempSong.name.toLowerCase().equals(name) && tempSong.artist.toLowerCase().equals(artist) && tempSong != currentSong) {
 					return false;
 				}
 			}
 		} else {
 			for(int i = 0;i<songs.size();i++) {
 				tempSong = songs.get(i);
-				if(tempSong.name.equals(name) && tempSong.artist.equals(artist)) {
+				if(tempSong.name.toLowerCase().equals(name) && tempSong.artist.toLowerCase().equals(artist)) {
 					return false;
 				}
 			}

@@ -8,12 +8,12 @@ import javafx.stage.Stage;
 
 //Created by: Calvin Tang and Joseph Morales
 
-public class Main extends Application {
+public class SongLib extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("view/MainView.fxml"));
+			loader.setLocation(SongLib.class.getResource("view/MainView.fxml"));
 			Scene scene = new Scene(loader.load());
 			
 			MainController mainController = loader.getController();
@@ -21,6 +21,7 @@ public class Main extends Application {
 		
 			
 			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
 			primaryStage.show();
 			primaryStage.setTitle("Song Library");
 		} catch(Exception e) {
