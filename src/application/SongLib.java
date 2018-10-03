@@ -1,3 +1,6 @@
+//Created by: Calvin Tang and Joseph Morales
+
+
 package application;
 	
 import application.view.MainController;
@@ -5,8 +8,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-//Created by: Calvin Tang and Joseph Morales
 
 public class SongLib extends Application {
 	@Override

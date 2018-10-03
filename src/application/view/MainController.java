@@ -1,8 +1,7 @@
-package application.view;
-
 //Created by: Calvin Tang and Joseph Morales
 //Includes GSon
 
+package application.view;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -157,6 +156,8 @@ public class MainController {
 				Optional<ButtonType> result = alert.showAndWait();
 				if (result.get() == ButtonType.OK){
 					
+					int currentIndex = songList.getSelectionModel().getSelectedIndex();
+					
 					Song currentSong = songList.getSelectionModel().getSelectedItem();
 					
 					int indexOfSong = getIndexJson(currentSong.name,currentSong.artist);
@@ -164,6 +165,10 @@ public class MainController {
 					songs.remove(currentSong);
 					list.remove(indexOfSong);
 					writeToJson();
+					
+					if(currentIndex != 0 && currentIndex != songs.size()) {
+						songList.getSelectionModel().select(currentIndex);
+					}
 				
 					if(songs.size() > 0) {
 						setDetailToCurrentSong();
